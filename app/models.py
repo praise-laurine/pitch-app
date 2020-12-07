@@ -19,6 +19,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     pitch = db.relationship('Pitch',backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref = 'user', lazy= 'dynamic')
+
     
 
     @property
@@ -91,6 +92,9 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+
+
 
 
 
