@@ -1,3 +1,66 @@
 {% extends 'base.html' %} 
 {% import 'macros.html' as macro %} 
 {% block content %}
+
+<ul style = "text-align: center ; font-size :24px">
+    <ul>
+      <a class="nav-link" data-toggle="tab" href="#Products" role="tab">PRODUCTS</a>
+    </ul>
+    <ul >
+      <a class="nav-link" data-toggle="tab" href="#Pickups" role="tab">PICK UPS</a>
+    </ul>
+    <ul>
+      <a class="nav-link" data-toggle="tab" href="#Interviews" role="tab">INTERVIEWS</a>
+    </ul>
+    <ul >
+      <a class="nav-link" data-toggle="tab" href="#Promotions" role="tab">PROMOTIONS</a>
+    </ul>
+    <ul>
+      <a class="nav-link" data-toggle="tab" href="#Love" role="tab">LOVE</a>
+    </ul>
+  </ul>
+  
+  <a href="{{url_for('main.new_pitch')}}" style = "margin-left: 20.25%; color:rgb(13, 13, 143);font-size: 25px">
+    <span >CREATE A PITCH<span>
+  </a>
+  </div>
+  
+  <div class="tab-content" style="background-color:#5BC0DE;color:white">
+    <div style="margin-top: 1em;" class="tab-pane" id="Products" role="tabpanel">
+      <div class="container-fluid" style="margin: 2% 4%">
+        <div class="row">
+          {{macro.displayPitchList(product_pitch)}}
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 1em;" class="tab-pane" id="Pickups" role="tabpanel">
+      <div class="container-fluid" style="margin: 2% 4%">
+        <div class="row">
+          {{macro.displayPitchList(pickup_lines)}}
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 1em;" class="tab-pane" id="Interviews" role="tabpanel">
+      <div class="container-fluid" style="margin: 2% 4%">
+        <div class="row">
+          {{macro.displayPitchList(interview_pitch)}}
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 1em;" class="tab-pane" id="Promotions" role="tabpanel">
+      <div class="container-fluid" style="margin: 2% 4%">
+        <div class="row">
+          {{macro.displayPitchList(promotion_pitch)}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 1em;" class="tab-pane" id="Love" role="tabpanel">
+    <div class="container-fluid" style="margin: 2% 4%">
+      <div class="row">
+        {{macro.displayPitchList(love_pitch)}}
+      </div>
+    </div>
+  </div>
+  {% endblock%}
+  
