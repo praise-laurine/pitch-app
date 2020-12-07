@@ -1,8 +1,8 @@
 from flask import render_template,request,redirect, url_for,abort
 from . import main
-from ..models import User
+from ..models import *
 from flask_login import login_required,current_user
-from .form import CommentForm,PitchForm,UpdateProfile
+from .forms import * 
 from .. import db,photos
 
 
@@ -14,16 +14,15 @@ def index():
     '''
     title = 'Pitches'
     product_pitch = Pitch.query.filter_by(category = 'Product Pitch').all()
-    pickup_lines = Pitch.query.filter_by(category = 'Pickup Lines').all()
     interview_pitch = Pitch.query.filter_by(category = 'Interview Pitch').all()
     promotion_pitch = Pitch.query.filter_by(category = 'Promotion Pitch').all()
     love_pitch = Pitch.query.filter_by(category = 'Love Pitch').all()
 
-    return render_template('index.html', title=title,product_pitch = product_pitch, pickup_lines = pickup_lines, interview_pitch = interview_pitch, promotion_pitch = promotion_pitch, love_pitch = love_pitch)
+    return render_template('index.html', title=title,product_pitch = product_pitch, interview_pitch = interview_pitch, promotion_pitch = promotion_pitch, love_pitch = love_pitch)
 
 
 @main.route('/pitch/new_pitch', methods = ['POST', 'GET'])
- @login_required  
+@login_required  
 def new_pitch():
     pitch_form = PitchForm()
     if pitch_form.validate_on_submit():
