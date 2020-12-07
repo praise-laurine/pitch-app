@@ -62,11 +62,21 @@ class Pitch(db.Model):
     
 
 
-    
 class Comment(db.Model):
     '''
-    Sources class to define Sources Objects
+    Comment class that define comment Objects
     '''
+    __tablename__ = 'comment'
+
+    id = db.Column(db.Integer,primary_key = True)
+    body = db.Column(db.String(255))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
+            
+    published_at = db.Column(db.DateTime, default = datetime.utcnow)  
+
+    def __repr__(self):
+        return f'User {self.description}'
 
 class Role(db.Model):
     __tablename__ = 'roles'
