@@ -1,42 +1,87 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro %}
+    {% import 'macros.html' as macro%}
+    {% if title %}
 
-{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Choose your favorite pitch</title>
+    {% endif %}
+</head>
+<body style="background-color: aqua"> 
+    <!-- Styles block -->
+    {% block styles%}
+          {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+    {% endblock %}
+    <!-- Content block -->
+    {% block content %}
+    <div class="container">
+        <div class="jumbotron" style="background-color: plum; font-style: italic;">
+          <h1 style="font-size: 30px;">"In life, you only have 60 seconds to impress someone. 1 minute can make or break you."</h1>
+        </div>
+   <div class="row">
+      <div class="col-md-4">
+      <h3 class="card-text" class= "text text-center" style="font-weight: bolder; font-size: 30px;"> Products pitches</h3>
+      <hr>
+      <h4>Optimizing sales content for desktop is a clear and worthwhile priority for today’s sales leaders.</h4>
+      
+      <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
+    </div>
     
-  <div  class="container" id="particles-js">
-          <h2 class="text-center" id="posts">create pitch</h2>
-      <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
-          <li class="nav-item" >
-              <a id ="cats" class="nav-link" data-toggle="tab" href="#Love" role="tab"><strong>Love Pitches</strong> </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id ="cats" data-toggle="tab" href="#Products" role="tab">Products Pitches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id ="cats" data-toggle="tab" href="#Interviews" role="tab">Interviews Pitches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id ="cats"data-toggle="tab" href="#Promotions" role="tab">Promotions Pitches</a>
-          </li>
-      </ul>
-      <a href="{{url_for('main.new_pitch')}}">
-        <span >CREATE A PITCH<span>
-      </a>
-
-      <div class="tab-content">
-          <div  class="container tab-pane active" id="all"><br>
-              {{ macro.displayPitchList(love_pitch) }}
-          </div>
-          <div  class="container tab-pane fade" id="event"><br>
-              {{ macro.displayPitchList(product_pitch)}}
-          </div>
-          <div  class="container tab-pane fade" id="jobs"><br>
-              {{ macro.displayPitchList(interview_pitch) }}
-          </div>
-          <div  class="container tab-pane fade" id="ads"><br>
-              {{ macro.displayPitchList(promotion_pitch) }}
-              
-          </div>
-      </div>
+  <div class="col-md-4">
+    <h3 class="card-text" class= "text text-center" style="font-weight: bolder; font-size: 30px;">Interview pitches</h3>
+    <hr>
+    <h4>I am a talented and enthusiastic … with more than … years’ experience in … I am currently seeking a … position to take my career to the next level.</h4>
+    
+    <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
   </div>
-{% endblock%}
+
+  <div class="col-md-4">
+    <h3 class="card-text" class = "text text-center" style="font-weight: bolder; font-size: 30px;"> Promotion pitches</h3>
+    <hr>
+    <h4>Deliver better projects faster with envato elements web design and video assets</h4>
+    
+    <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
+    <hr> 
+  </div>
+
+  <div class="col-md-4">
+    <h3 class="card-text" class = "text text-center" style="font-weight: bolder; font-size: 30px;"> Love pitches</h3>
+    <hr>
+    <h4>It is better to be hated for what you are than to be loved for what you are not.</h4>
+    
+    <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
+    <hr>
+  </div> 
+
+  <div class="col-md-4">
+    <h3 class="card-text" class = "text text-center" style="font-weight: bolder; font-size: 30px;"> Culture pitches</h3>
+    <hr>
+    <h4>Never judge someone by the way he looks or a book by the way it’s covered;
+      For inside those tattered pages, there’s a lot to be discovered” by Stephen Cosgrove</h4>
+    
+    <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
+    <hr> 
+  </div>
+
+  <div class="col-md-4">
+    <h3 class="card-text" class = "text text-center" style="font-weight: bolder; font-size: 30px;">Inspiration pitches</h3>
+    <hr>
+    <h4>The harder you work for something, the greater you'll feel when you achieve it.</h4>
+    
+    <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
+    <hr> 
+  </div>
+
+
+  </div>
+  </div>
+    {% endblock%}
+    </div>
+</body>

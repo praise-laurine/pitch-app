@@ -17,8 +17,12 @@ def index():
     interview_pitch = Pitch.query.filter_by(category = 'Interview Pitch').all()
     promotion_pitch = Pitch.query.filter_by(category = 'Promotion Pitch').all()
     love_pitch = Pitch.query.filter_by(category = 'Love Pitch').all()
+    culture_pitch = Pitch.query.filter_by(category = 'Culture Pitch').all()
+    inspiration_pitch = Pitch.query.filter_by(category = 'Inspiration Pitch').all()
 
-    return render_template('index.html', title=title,product_pitch = product_pitch, interview_pitch = interview_pitch, promotion_pitch = promotion_pitch, love_pitch = love_pitch)
+
+
+    return render_template('index.html', title=title,product_pitch = product_pitch, interview_pitch = interview_pitch, promotion_pitch = promotion_pitch, love_pitch = love_pitch, culture_pitch= culture_pitch, inspiration_pitch = inspiration_pitch )
 
 
 @main.route('/pitch/new_pitch', methods = ['POST', 'GET'])
