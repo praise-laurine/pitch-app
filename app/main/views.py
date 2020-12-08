@@ -5,7 +5,6 @@ from flask_login import login_required,current_user
 from .forms import * 
 from .. import db,photos
 
-
 # views
 @main.route('/')
 def index():
@@ -79,6 +78,15 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))    
 
+@main.route('/categories/<cate>')
+def category(cate):
+    '''
+    function to return the pitches by category
+    '''
+    category = Pitches.get_pitches(cate)
+    # print(category)
+    title = f'{cate}'
+    return render_template('categories.html',title = title, category = category)
 
 
 
