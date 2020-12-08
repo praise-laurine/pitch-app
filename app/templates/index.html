@@ -21,7 +21,7 @@
     {% endblock %}
     <!-- Content block -->
     {% block content %}
-    <div class="container-fluid" style="background-image: url(../static/images/bg.webp); background-size: cover;">
+    <div class="container-fluid" style="background-image: url(../static/images/bg.webp); background-size: cover; font-family: 'Gabriela'" >
         <div class="jumbotron" style="background-color: plum; font-style: bold; font-family: 'Gabriela', serif; color:#fff;">
           <h1 style="font-size: 30px;">"Welcome to Pitch app. A place where you get to share ideas and learn too."</h1>
         </div>
@@ -29,7 +29,7 @@
       <div class="col-md-4">
       <h3 class="card-text" class= "text text-center" style="font-weight: bolder; font-size: 30px;"> Products pitches</h3>
       <hr>
-      <h4>Optimizing sales content for desktop is a clear and worthwhile priority for today’s sales leaders.</h4>
+      <h4 style="font-family: 'Gabriela">Optimizing sales content for desktop is a clear and worthwhile priority for today’s sales leaders.</h4>
       
       <button type="button" class="btn btn-outline-primary"><a href="{{url_for('main.new_pitch')}}">Create a New Pitch</a></button><br><br>
     </div>
@@ -85,3 +85,5 @@
     {% endblock%}
     </div>
 </body>
+
+
